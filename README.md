@@ -16,4 +16,4 @@ APK файл x86_64: [Завантажити APK](https://drive.google.com/file/
 
 APK файл armeabi-v7a: [Завантажити APK](https://drive.google.com/file/d/1ZhWzwnWykSF9IvhZvDkC22Uj6I7LVxIc/view?usp=share_link)
 
-Добавив також переміщенна нотатків(Зажміть на 1 секунду нотаток і переміщається по списку)
+Добавив також переміщення нотатків(Зажміть на 1 секунду нотаток і переміщайте по списку)
