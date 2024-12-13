@@ -15,3 +15,5 @@ APK файл arm64-v8a: [Завантажити APK(recomend)](https://drive.goo
 APK файл x86_64: [Завантажити APK](https://drive.google.com/file/d/1aO4MkHyGuRGQesoyizGS-cWtNGoK5Sp_/view?usp=share_link)
 
 APK файл armeabi-v7a: [Завантажити APK](https://drive.google.com/file/d/1ZhWzwnWykSF9IvhZvDkC22Uj6I7LVxIc/view?usp=share_link)
+
+Добавив також переміщенна нотатків(Зажміть на 1 секунду нотаток і переміщається по списку)
