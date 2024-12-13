@@ -33,6 +33,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _controller = TextEditingController();
   List<Map<String, dynamic>> _tasks = [];
+  bool _isButtonEnabled = false;
+
 
   double progress = 0.0;
   Color dynamicColor = Colors.red.withOpacity(0.1);
@@ -64,14 +66,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
       try {
         await DatabaseHelper.instance.updateAllTaskOrder();
-
         await DatabaseHelper.instance.insertTask(newTask, taskOrder: 0);
-
+        await _loadTasks();
         _controller.clear();
-        _loadTasks();
+        _isButtonEnabled = false;
       } catch (e) {
         print('Error adding task: $e');
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error adding task: $e'))
+        );
       }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Please enter a task'))
+      );
     }
   }
 
@@ -108,6 +116,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: TextField(
                     controller: _controller,
+                    onChanged: (text) {
+                      setState(() {
+                        _isButtonEnabled = text.isNotEmpty;
+                      });
+                    },
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         label: Text("Ведіть назву!")),
@@ -115,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const SizedBox(width: 8),
                 IconButton(
-                  onPressed: _addTask,
+                  onPressed: _isButtonEnabled ? _addTask : null,
                   icon: const Icon(
                     Icons.add_circle,
                     size: 40,
